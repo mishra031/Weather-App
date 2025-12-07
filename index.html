@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="weather-app">
+    <div class="app-container">
+      <h1 class="app-title" id="appTitle">Weather Forecast</h1>
+
+      <div class="search-container">
+        <form class="search-form" id="searchForm">
+          <input type="text" id="cityInput" class="search-input" placeholder="Enter city name..." required>
+          <button type="submit" class="search-button" id="searchButton">Search</button>
+        </form>
+      </div>
+      <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+        <p>Loading weather data...</p>
+      </div>
+      <div class="error-message" id="errorMessage">
+        City not found. Please try again.
+      </div>
+      <div class="weather-card" id="weatherCard">
+        <h2 class="location-name" id="locationName"></h2>
+        <p class="weather-date" id="weatherDate"></p>
+
+        <div class="main-weather">
+          <div class="temperature" id="temperature"></div>
+          <div class="weather-icon" id="weatherIcon"></div>
+        </div>
+        <p class="weather-description" id="weatherDescription"></p>
+        <div class="weather-details">
+          <div class="detail-item">
+            <p class="detail-label">Feels Like</p>
+            <p class="detail-value" id="feelsLike"></p>
+          </div>
+          <div class="detail-item">
+            <p class="detail-label">Humidity</p>
+            <p class="detail-value" id="humidity"></p>
+          </div>
+          <div class="detail-item">
+            <p class="detail-label">Wind Speed</p>
+            <p class="detail-value" id="windSpeed"></p>
+          </div>
+          <div class="detail-item">
+            <p class="detail-label">Pressure</p>
+            <p class="detail-value" id="pressure"></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
