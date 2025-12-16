@@ -1,6 +1,5 @@
 const API_KEY = "3045dd712ffe6e702e3245525ac7fa38";
 const API_URL = "https://api.openweathermap.org/data/2.5/weather";
-
 const weatherIconMap = {
   "01d": "☀️", "01n": "🌙",
   "02d": "⛅", "02n": "☁️",
@@ -12,20 +11,14 @@ const weatherIconMap = {
   "13d": "❄️", "13n": "❄️",
   "50d": "🌫️", "50n": "🌫️"
 };
-
-// Fetch Weather API
 async function fetchWeather(city) {
   const url = `${API_URL}?q=${city}&appid=${API_KEY}&units=metric`;
   const response = await fetch(url);
-
   if (!response.ok) {
     throw new Error("City not found");
   }
-
   return await response.json();
 }
-
-// Render UI
 function displayWeather(data) {
   const date = new Date();
   const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
@@ -44,14 +37,10 @@ function displayWeather(data) {
   document.getElementById("weatherCard").classList.add("visible");
   document.getElementById("errorMessage").classList.remove("visible");
 }
-
-// Error UI
 function showError() {
   document.getElementById("weatherCard").classList.remove("visible");
   document.getElementById("errorMessage").classList.add("visible");
 }
-
-// Loader
 function showLoading(isLoading) {
   const spinner = document.getElementById("loadingSpinner");
   const button = document.getElementById("searchButton");
@@ -64,8 +53,6 @@ function showLoading(isLoading) {
     button.disabled = false;
   }
 }
-
-// Form handler
 document.getElementById("searchForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
